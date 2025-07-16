@@ -8,7 +8,7 @@ import "./styles/styles.css";
 function App() {
   return (
     <CartProvider>
-      <Router>
+      <Router basename="/Nursery-react"> {/* 👈 Add basename here */}
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/products" element={<ProductsPage />} />
@@ -20,3 +20,4 @@ function App() {
 }
 
 export default App;
+
