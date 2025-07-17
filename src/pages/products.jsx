@@ -7,7 +7,7 @@ const plantData = [
     name: "Snake Plant",
     category: "Low Light",
     price: 300,
-    image: `${import.meta.env.BASE_URL}assets/images/snake.jpg`,
+    image: `../assets/images/snake.jpg`,
   },
   {
     id: 2,
