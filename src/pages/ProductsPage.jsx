@@ -1,4 +1,4 @@
-import Header from '../components/Header';
+// src/pages/ProductsPage.jsx
 import ProductCard from '../components/ProductCard';
 import snake from '../asset/image/snake.jpg';
 import monstera from '../asset/image/monstera.jpg';
@@ -20,22 +20,18 @@ const ProductsPage = () => {
   const categories = [...new Set(plantData.map(plant => plant.category))];
 
   return (
-    <>
-      <Header />
-      <main className="products-page">
-        {categories.map(category => (
-          <div key={category} className="category-section">
-            <h2>{category}</h2>
-            <div className="product-list">
-              {plantData
-                .filter(plant => plant.category === category)
-                .map(plant => <ProductCard key={plant.id} product={plant} />)
-              }
-            </div>
+    <main className="products-page">
+      {categories.map(category => (
+        <div key={category} className="category-section">
+          <h2>{category}</h2>
+          <div className="product-grid">
+            {plantData
+              .filter(plant => plant.category === category)
+              .map(plant => <ProductCard key={plant.id} product={plant} />)}
           </div>
-        ))}
-      </main>
-    </>
+        </div>
+      ))}
+    </main>
   );
 };
 

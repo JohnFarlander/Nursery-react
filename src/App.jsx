@@ -1,17 +1,17 @@
-import React from "react";
+// src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
+import Header from "./components/Header";
 import LandingPage from "./pages/LandingPage";
 import ProductsPage from "./pages/ProductsPage";
 import CartPage from "./pages/CartPage";
-import { CartProvider } from "./context/CartContext";
-import Header from "./components/Header";
-
+import "./styles/styles.css";
 
 function App() {
   return (
     <CartProvider>
       <Router>
-        <Header />
+        <Header /> {/* only call once here */}
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/products" element={<ProductsPage />} />
