@@ -1,7 +1,22 @@
-import { useCart } from "../context/CartContext";
+import { useDispatch } from 'react-redux';
+import { removeItem, updateQuantity } from '../redux/slices/CartSlice';
 
 const CartItem = ({ item }) => {
-  const { updateQuantity, removeFromCart } = useCart();
+  const dispatch = useDispatch();
+
+  const handleIncrement = () => {
+    dispatch(updateQuantity({ id: item.id, quantity: item.quantity + 1 }));
+  };
+
+  const handleDecrement = () => {
+    if (item.quantity > 1) {
+      dispatch(updateQuantity({ id: item.id, quantity: item.quantity - 1 }));
+    }
+  };
+
+  const handleRemove = () => {
+    dispatch(removeItem({ id: item.id }));
+  };
 
   return (
     <div className="cart-item">
@@ -10,9 +25,10 @@ const CartItem = ({ item }) => {
         <h4>{item.name}</h4>
         <p>₹{item.price} x {item.quantity}</p>
         <div>
-          <button onClick={() => updateQuantity(item.id, -1)}>-</button>
-          <button onClick={() => updateQuantity(item.id, 1)}>+</button>
-          <button onClick={() => removeFromCart(item.id)}>🗑️</button>
+          <button onClick={handleDecrement}>-</button>
+          <span>{item.quantity}</span>
+          <button onClick={handleIncrement}>+</button>
+          <button onClick={handleRemove}>🗑️</button>
         </div>
       </div>
     </div>

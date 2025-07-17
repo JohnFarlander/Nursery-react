@@ -1,14 +1,16 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { CartProvider } from "./context/CartContext";
 import LandingPage from "./pages/LandingPage";
-import ProductsPage from "./pages/products";
+import ProductsPage from "./pages/ProductsPage";
 import CartPage from "./pages/CartPage";
-import "./styles/styles.css";
+import { CartProvider } from "./context/CartContext";
+import Header from "./components/Header";
 
 function App() {
   return (
     <CartProvider>
-      <Router basename="/Nursery-react"> {/* 👈 Add basename here */}
+      <Router>
+        <Header />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/products" element={<ProductsPage />} />
@@ -20,4 +22,3 @@ function App() {
 }
 
 export default App;
-
