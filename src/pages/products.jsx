@@ -48,7 +48,6 @@ const plantData = [
 
 const products = () => (
   <>
-    <Header />
     <main className="products">
       {plantData.map((plant) => (
         <ProductCard key={plant.id} product={plant} />
