@@ -60,3 +60,26 @@ body {
   margin-top: 2rem;
   font-size: 1.2rem;
 }
+.cart-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cart-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.continue-shopping {
+  background-color: #52b788;
+  color: white;
+}
+
+.cart-buttons button:last-child {
+  background-color: #76c893;
+  color: white;
+}

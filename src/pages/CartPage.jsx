@@ -17,13 +17,22 @@ const CartPage = () => {
     <>
       <div className="cart-page">
         <h3>Your Cart</h3>
-        {cart.length === 0 ? <p>Your cart is empty</p> : (
+        {cart.length === 0 ? (
+          <p>Your cart is empty</p>
+        ) : (
           <>
-            {cart.map((item) => <CartItem key={item.id} item={item} />)}
+            {cart.map((item) => (
+              <CartItem key={item.id} item={item} />
+            ))}
             <div className="summary">
               <p>Total Items: {totalItems}</p>
               <p>Total Price: ₹{totalPrice}</p>
-              <button onClick={handleCheckout}>Checkout</button>
+              <div className="cart-buttons">
+                <button onClick={() => navigate("/products")} className="continue-shopping">
+                  Continue Shopping
+                </button>
+                <button onClick={handleCheckout}>Checkout</button>
+              </div>
             </div>
           </>
         )}
