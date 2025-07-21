@@ -16,7 +16,7 @@ body {
   text-decoration: none;
 }
 .landing-page {
-  background: url('../asset/image/bg.jpg') no-repeat center/cover;
+  background: url('../asset/images/bg.jpg') no-repeat center/cover;
   height: 100vh;
   display: flex;
   align-items: center;
