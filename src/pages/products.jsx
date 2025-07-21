@@ -45,15 +45,25 @@ const plantData = [
   },
 ];
 
+const ProductsPage = () => {
+  const categories = [...new Set(plantData.map((p) => p.category))];
 
-const products = () => (
-  <>
-    <main className="products">
-      {plantData.map((plant) => (
-        <ProductCard key={plant.id} product={plant} />
+  return (
+    <div className="products-page">
+      {categories.map((category) => (
+        <div key={category} className="category-section">
+          <h2>{category}</h2>
+          <div className="product-grid">
+            {plantData
+              .filter((p) => p.category === category)
+              .map((plant) => (
+                <ProductCard key={plant.id} product={plant} />
+              ))}
+          </div>
+        </div>
       ))}
-    </main>
-  </>
-);
+    </div>
+  );
+};
 
-export default products;
+export default ProductsPage;
